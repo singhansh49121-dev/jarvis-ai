@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JARVIS AI</title>
+  <style>
+    body {
+      background: #07111f;
+      color: #00eaff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 25px;
+    }
+    h1 { margin-top: 45px; }
+    #chat {
+      max-width: 500px;
+      margin: 20px auto;
+    }
+    #messages {
+      height: 300px;
+      overflow-y: auto;
+      border: 1px solid #00eaff;
+      padding: 12px;
+      text-align: left;
+      color: white;
+      border-radius: 12px;
+    }
+    input {
+      box-sizing: border-box;
+      width: 72%;
+      padding: 12px;
+      margin-top: 12px;
+      border-radius: 8px;
+    }
+    button {
+      padding: 12px;
+      background: #00eaff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🤖 JARVIS AI</h1>
+  <p>Your Personal AI Assistant</p>
+
+  <div id="chat">
+    <div id="messages">JARVIS: Hello! Main tuhadi ki help karaan?</div>
+    <input id="question" placeholder="Message JARVIS...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("question");
+      const messages = document.getElementById("messages");
+      const question = input.value.trim();
+
+      if (!question) return;
+
+      messages.innerHTML += "<p>You: " +
+        question.replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;") + "</p>";
+
+      messages.innerHTML +=
+        "<p>JARVIS: Message mil gaya! AI brain agle step vich connect karange.</p>";
+
+      input.value = "";
+      messages.scrollTop = messages.scrollHeight;
+    }
+  </script>
+</body>
+</html>
